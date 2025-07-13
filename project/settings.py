@@ -120,6 +120,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # Add your static files directory here
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Directory to collect static files for production
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'static/media'  # Directory to store uploaded files
 # Default primary key field type
