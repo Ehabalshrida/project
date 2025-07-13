@@ -1,0 +1,39 @@
+{% extends 'app/layout.html' %}
+{% block title %} 
+Home 
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+    <h1>Home Page Template</h1>
+    <h2>{{context.title|upper}}</h2>
+    <p>{{context.message|capfirst}}</p>
+    <section>{{context.list.1}}</section>
+   <section>{{context.grads.ar|add:5}}</section>
+   <ul class="cloumns">
+     {% for item in context.list %}
+    <li>{{ item }}</li>
+  {% endfor %}
+   </ul>
+   <ol>
+     {% for key, value in context.grads.items %}
+    <li>{{ key }}: {{ value }}</li>
+  {% endfor %}
+   </ol>
+   <ul>
+     {% for item in context.list reversed %}
+    <li>{{ item }}</li>
+  {% endfor %}
+   </ul>
+   
+   {% if context.value == 100 %}
+    <p>Value is exactly 100</p>
+    {% elif context.value > 100 %}
+    <span class="text-primary-emphasis bg-primary-subtle">Value is greater than 100</span>
+   <br>
+    {% else %}
+    <p> value is less than 100</p>
+   {% endif %}
+    <a href="{% url 'app:about' %}">About</a>
+    </div>
+{% endblock content %}

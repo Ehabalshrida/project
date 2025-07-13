@@ -1,0 +1,20 @@
+{% extends 'app/layout.html' %}
+
+{% block title %} 
+User Details 
+{% endblock title %}
+
+{% block content %}
+<h2 class="px-2">Book Details</h2>
+
+<ul>
+  <li>tilte: {{ book.title }}</li>
+  <li>summery: {{ book.summery }}</li>
+  <li>language: {{ book.language }}</li>
+  <li>isbn: {{ book.isbn }}</li>
+  <li>genre: {{ book.genre }}</li>
+  <li>author: {{ book.author.last_name }}</li>
+
+</ul>
+
+{% endblock content %}

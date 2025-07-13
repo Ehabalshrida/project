@@ -1,0 +1,39 @@
+{% extends 'app/layout.html' %}
+
+{% block title %}
+Users List
+{% endblock title %}
+
+{% block content %}
+<h2 class="px-2">Users list</h2>
+<ul>
+{% for user in users %}
+  <hr />
+  <ul>
+    <li>
+      <ul>
+        Age:{{user.age}} / id: {{user.id}}
+      <li><a href="{% url 'app:userDetails' user.pk %}">
+        {{ user.first_name }} - {{ user.last_name }}
+      </a></li>
+       <li><a href="{% url 'app:userUpdate' user.pk %}">
+        update user
+      </a></li>
+        <li><a href="{% url 'app:userDelete' user.pk %}">
+        delete user
+      </a></li>
+      </ul>
+    </li>
+  </ul> 
+{% endfor %}
+</ul>
+ <hr/>
+  <ul>
+    
+    {% for user in orderById  %}
+    <li>{{user.first_name}}</li>
+      
+    {% endfor %}
+      
+  </ul>
+{% endblock content %}

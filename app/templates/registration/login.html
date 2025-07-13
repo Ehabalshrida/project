@@ -1,0 +1,31 @@
+{% extends 'app/layout.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %} 
+Login Page 
+{% endblock title %}
+
+{% block content %}
+
+{% if form.errors %}
+    <p>you have enter wrong username/ password</p>
+{% endif %}
+    
+{% if next %}
+        
+        {% if request.user.is_authenticated %}
+            <p> you don't have a permission</p>
+        {% else %}
+        <p>please login to see this page</p>
+        {% endif %}
+            
+{% endif %}
+<form action=" {% url 'login' %}" class="form-group container" method="post">
+    {% csrf_token %}
+      {% bootstrap_form form %}
+<p>Next:{{next}}</p>
+    <input type="submit"value="Login" class="btn btn-primary">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+        
+{% endblock content %}

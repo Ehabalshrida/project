@@ -1,0 +1,27 @@
+{% extends 'app/layout.html' %}
+ {% block title %} Books Template
+  {% endblock title %} 
+{% block content %}
+<h2 class="px-2"> Books Page Template</h2>
+<div>Number of books: {{ numberOfBooks }}</div>
+<div>Number of Instances: {{ numberOfBooksInstances }}</div>
+<div>Number of Available books: {{numberOfAvailableBooks }}</div>
+<div>requestPath: {{request.path}}</div>
+{% if request.user.is_authenticated %}
+  welcome {{ request.user.username }}!
+  <form action="{%url 'logout' %}" method="post" class="form-group">
+    {% csrf_token %}
+    <input type="submit" value="Logout" class="btn btn-primary">
+      <input type="hidden" name="next" value="{% url 'login' %}">
+  </form>
+    <a href="{% url 'app:changePassword' %}?next=accounts/login">Change Password</a>
+
+{% else %}
+  <div>Welcome Guest!</div>
+  <div>to login</div>
+  <a href="{% url 'login' %}?next={{request.path}}">login</a>
+  <a href="{% url 'app:register' %}?next=accounts/login">register</a>
+
+{% endif %}
+  
+{% endblock content %}

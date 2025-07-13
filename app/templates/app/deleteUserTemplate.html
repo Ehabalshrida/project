@@ -1,0 +1,14 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+ <h1 class="container">Delete</h1>
+    <form action="" method="post" class="form-group container">
+         {% csrf_token %}       
+        <input type="number" name="id" placeholder="Enter id" value="{{user.id}}" class="form-control mb-2">
+        <input type="submit" class="btn btn-danger" name="submit" value="Delete" />
+
+    </form>
+
+    
+{% endblock content %}
+    

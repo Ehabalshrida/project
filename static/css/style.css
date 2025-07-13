@@ -1,0 +1,25 @@
+h1 {
+    color: red
+}
+p {
+    color: yellow;
+}
+div {
+    color: green
+}
+h1.ehab {
+    color: brown;
+}
+a {
+    color: white;
+    padding: 6px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid blue;
+    background: blue ;
+
+}

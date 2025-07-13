@@ -1,0 +1,16 @@
+{% extends 'app/layout.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+<form action="" method="post" class="form-group container">
+
+  {% csrf_token %}
+       {% comment %}
+  {{form}}
+ {% endcomment %}
+
+  {% bootstrap_form form %}
+  <input type="submit" class="btn btn-primary" name="submit" value="Submit" />
+</form>
+{{form.errors}}
+{% endblock content %}
+    
